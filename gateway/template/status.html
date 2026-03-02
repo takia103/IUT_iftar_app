@@ -1,0 +1,32 @@
+templates/status.html:
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="card" style="text-align:center;margin-top:100px;">
+<h2>Order Processing</h2>
+<p id="s" class="status">Pending...</p>
+</div>
+
+<script>
+let oid="{{oid}}";
+
+setInterval(()=>{
+fetch("/api/status/"+oid)
+.then(r=>r.json())
+.then(d=>{
+s.innerText=d.status;
+if(d.status=="Ready"){
+setTimeout(()=>window.location="/ready/"+oid,1000);
+}
+})
+},2000)
+</script>
+
+</body>
+</html>
