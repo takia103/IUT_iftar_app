@@ -1,0 +1,57 @@
+templates/menu.html:
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1 style="text-align:center;margin-top:40px;">Iftar Menu</h1>
+
+<div class="grid">
+
+<div class="card">
+<h2>Platter 1</h2>
+<p>Dates • Juice • Khichuri</p>
+<p>Qty:120</p>
+<p>Price:120 BDT</p>
+<button onclick="order(120)">Order Now</button>
+</div>
+
+<div class="card">
+<h2>Platter 2</h2>
+<p>Chicken • Rice • Salad</p>
+<p>Qty:80</p>
+<p>Price:180 BDT</p>
+<button onclick="order(180)">Order Now</button>
+</div>
+
+<div class="card">
+<h2>Platter 3</h2>
+<p>Beef • Polao • Dessert</p>
+<p>Qty:60</p>
+<p>Price:250 BDT</p>
+<button onclick="order(250)">Order Now</button>
+</div>
+
+</div>
+
+<script>
+function order(price){
+fetch("/api/order",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+student_id:localStorage.getItem("student"),
+amount:price
+})
+})
+.then(r=>r.json())
+.then(d=>window.location="/status/"+d.order_id)
+}
+</script>
+
+</body>
+</html>
