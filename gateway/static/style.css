@@ -1,0 +1,42 @@
+static/style.css:
+
+body{
+margin:0;
+font-family:'Segoe UI';
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+border-radius:20px;
+padding:30px;
+margin:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+button{
+background:#00c6ff;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+color:white;
+cursor:pointer;
+}
+
+.grid{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+.status{
+font-size:22px;
+margin:20px;
+}
