@@ -1,0 +1,43 @@
+templates/login.html:
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Iftar Login</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="card" style="width:320px;margin:auto;margin-top:120px;text-align:center;">
+<img src="/static/logo.jpg" width="90">
+<h2>Iftar Ordering Portal</h2>
+<input id="id" placeholder="Student ID"><br><br>
+<input id="pw" type="password" placeholder="Password"><br><br>
+<button onclick="login()">Login</button>
+<p id="err"></p>
+</div>
+
+<script>
+function login(){
+fetch("/api/login",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+student_id:id.value,
+password:pw.value
+})
+})
+.then(r=>r.json())
+.then(d=>{
+if(d.token){
+localStorage.setItem("student",id.value);
+window.location="/menu";
+}else{
+err.innerText="Invalid Credentials";
+}
+})
+}
+</script>
+
+</body>
+</html>
