@@ -1,0 +1,27 @@
+iftar_system/
+│
+├── gateway/
+│   ├── app.py
+│   ├── static/
+│   │   ├── logo.jpg
+│   │   ├── style.css
+│   │   └── app.js
+│   └── template/
+│       ├── login.html
+│       ├── menu.html
+│       ├── status.html
+│       ├── ready.html
+│       └── admin.html
+│
+├── identity_service/
+│   ├── app.py
+│   ├── init_db.py
+│
+├── order_service/
+│   └── app.py
+│
+├── stock_service/
+│   └── app.py
+│
+├── kitchen_service/
+│   └── app.py
