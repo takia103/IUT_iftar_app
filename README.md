@@ -48,7 +48,7 @@ iftar-system/
 │
 ├── gateway/
 │   ├── app.py
-│   ├── templates/
+│   ├── template/
 │   └── static/
 │
 ├── identity_service/
